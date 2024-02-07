@@ -1,0 +1,649 @@
+/* Start Variables */
+
+:root {
+    --main-color: #37e2d1;
+    --main1-color: rgb(195, 206, 206);
+    --secondary-color: #2c4755;
+    --section-padding: 60px;
+    --section-background: #f6f6f6;
+    --main-duration: 0.5s;
+}
+
+
+/* End Variables */
+
+
+/* Start Global Rules */
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Work Sans", sans-serif;
+}
+
+.container {
+    /*لجعل الموقع كله على نفس المستوى*/
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Small  للعرض في الشاشات*/
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header .container .d a {
+        display: none;
+    }
+}
+
+
+/* Medium */
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media (max-width: 997px) {
+    .header .container .d a {
+        display: none;
+    }
+}
+
+
+/* Large */
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+@media (min-width: 997px) {
+    .header .container .d a {
+        color: blue;
+        text-decoration: none;
+    }
+    .header .container .d {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 20px;
+        width: 60%;
+        text-align: center;
+        padding: 10px 20px;
+        border-left: 2px solid red;
+        border-right: 2px solid red;
+    }
+    .header .container .d a:hover {
+        color: red;
+    }
+}
+
+
+/* End Global Rules */
+
+
+/* Start Components */
+
+.special-heading {
+    color: #ebeced;
+    font-size: 100px;
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: -3px;
+    margin: 0;
+}
+
+.special-heading+p {
+    margin: -30px 0 0;
+    font-size: 20px;
+    text-align: center;
+    color: #797979;
+}
+
+@media (max-width: 767px) {
+    .special-heading {
+        font-size: 60px;
+    }
+    .special-heading+p {
+        margin-top: -20px;
+    }
+}
+
+
+/* End Components */
+
+
+/* Start Header */
+
+.header {
+    padding: 10px;
+    background-color: var(--main1-color);
+    background-size: cover;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo {
+    width: 30%;
+}
+
+.header .links {
+    /*   */
+    position: relative;
+}
+
+.header .links:hover .icon span:nth-child(2) {
+    width: 100%;
+}
+
+.header .links .icon {
+    /* أيقونة قائمة روابط الأقسام */
+    width: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.header .links .icon span {
+    background-color: #333;
+    margin-bottom: 5px;
+    height: 2px;
+}
+
+.header .links .icon span:first-child {
+    width: 100%;
+}
+
+.header .links .icon span:nth-child(2) {
+    width: 60%;
+    transition: var(--main-duration);
+}
+
+.header .links .icon span:last-child {
+    width: 100%;
+}
+
+.header .links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #f6f6f6;
+    position: absolute;
+    right: 0;
+    /* لكي لا تخرج على الشاشة وتبدأمن اول القائمة */
+    min-width: 200px;
+    top: calc(100% + 15px);
+    display: none;
+    z-index: 1;
+}
+
+.header .links ul::before {
+    /* لعمل سهم تحت أيقونة القائمة  */
+    content: "";
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #f6f6f6 transparent;
+    position: absolute;
+    right: 5px;
+    top: -20px;
+}
+
+.header .links:hover ul {
+    display: block;
+}
+
+.header .links ul li a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+    transition: var(--main-duration);
+}
+
+.header .links ul li a:hover {
+    padding-left: 25px;
+    color: red;
+}
+
+.header .links ul li:not(:last-child) a {
+    /* لعمل حدود لإختصارات الأقسام  */
+    border-bottom: 1px solid #ddd;
+}
+
+
+/* End Header */
+
+
+/* Start Landing Section */
+
+.landing {
+    background-image: url(../images/portfolio-1.jpg);
+    background-size: cover;
+    height: calc(100vh - 64px);
+    position: relative;
+}
+
+.landing .intro-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    max-width: 100%;
+}
+
+.landing .intro-text h1 {
+    margin: 0;
+    font-weight: bold;
+    font-size: 50px;
+    color: red;
+}
+
+.landing .intro-text h1:hover,
+.hh:hover {
+    color: var(--main-color);
+    text-shadow: cadetblue;
+}
+
+.landing .intro-text p {
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+@media (max-width: 767px) {
+    .landing .intro-text h1 {
+        font-size: 35px;
+        text-align: center;
+    }
+    .landing .intro-text p {
+        font-size: 13px;
+        text-align: center;
+    }
+}
+
+
+/* End Landing Section */
+
+
+/* Start colleges */
+
+.features {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    background-color: var(--section-background);
+}
+
+.features .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+}
+
+.features .feat {
+    padding: 20px;
+    text-align: center;
+}
+
+.features .feat i {
+    /* الأيقونات */
+    color: var(--main-color);
+}
+
+.features .feat h3 {
+    font-weight: 800;
+    margin: 30px 0;
+}
+
+.features .feat p {
+    line-height: 1.8;
+    color: #777;
+    font-size: 17px;
+}
+
+
+/* End colleges*/
+
+.card button {
+    margin-top: 25%;
+    width: 70px;
+    height: 40px;
+    text-align: center;
+    font-size: 20px;
+    color: red;
+    background-color: #2775;
+}
+
+.but {
+    margin-top: 2%;
+    margin-left: 15px;
+    width: auto;
+    height: 40px;
+    text-align: center;
+    font-size: 20px;
+    color: red;
+    background-color: #2775;
+}
+
+.card button:hover,
+.but:hover {
+    color: #2c4755;
+    background-color: #10cab7;
+    box-shadow: coral;
+    height: 50px;
+}
+
+
+/* Start Services  */
+
+.services {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+}
+
+.services .services-content {
+    /*  لتنظيم الأعمدة  */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 30px;
+    margin-top: 100px;
+}
+
+.services .services-content .srv {
+    display: flex;
+    margin-bottom: 40px;
+    justify-content: space-evenly;
+    justify-items: auto;
+    background-color: var(--section-background);
+}
+
+.services .services-content .srv img:hover,
+.services .services-content .srv a:hover {
+    color: #2c4755;
+    background-color: #10cab7;
+}
+
+@media (max-width: 767px) {
+    .services .services-content .srv {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.services .services-content .srv i {
+    color: var(--main-color);
+    flex-basis: 60px;
+    /* لتعامل معهن في الموبايل كطول وعرض  */
+}
+
+.services .services-content .srv .text h3 {
+    margin: 0 0 20px;
+    /* لكي يكون موازي للايقونة  */
+}
+
+.services .services-content .srv .text p {
+    color: #444;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+
+/* end Services  */
+
+
+/* Start department */
+
+.portfolio {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    background-color: var(--section-background);
+}
+
+.portfolio .portfolio-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
+    grid-gap: 30px;
+    margin-top: 80px;
+}
+
+.portfolio .portfolio-content .card {
+    background-color: white;
+}
+
+.portfolio .portfolio-content .card img {
+    max-width: 100%;
+    height: 50%;
+}
+
+.portfolio .portfolio-content .card img:hover {
+    height: 55%;
+    box-shadow: 15px 15px 15px red;
+}
+
+.portfolio .portfolio-content .card .info {
+    padding: 20px;
+}
+
+.portfolio .portfolio-content .card .info h2 {
+    margin: 0;
+    text-align: center;
+}
+
+.portfolio .portfolio-content .card .info p {
+    color: #777;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.portfolio-content .card a>h3 {
+    position: absolute;
+    font-weight: bold;
+}
+
+@media (max-width: 1199px) {
+    .portfolio .portfolio-content .card .info {
+        text-align: center;
+    }
+}
+
+
+/* End deprtment */
+
+
+/* Start About */
+
+.about {
+    padding-top: var(--section-padding);
+    padding-bottom: calc(var(--section-padding) + 60px);
+    /* لزيادة الهامش من دون ما نأثر في المتغير */
+}
+
+.about .about-content {
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+@media (max-width: 991px) {
+    .about .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.about .about-content .image {
+    position: relative;
+    width: 250px;
+    height: 375px;
+}
+
+@media (max-width: 991px) {
+    .about .about-content .image {
+        margin: 0 auto 60px;
+    }
+}
+
+.about .about-content .image::before {
+    /* الشكل الي خلف الصورة  */
+    content: "";
+    position: absolute;
+    background-color: #ebeced;
+    width: 100px;
+    height: calc(100% + 80px);
+    top: -40px;
+    left: -20px;
+    z-index: -1;
+}
+
+.about .about-content .image::after {
+    /* الشكل الي خلف الصورةحرف الإل   */
+    top: -40px;
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 300px;
+    border-left: 80px solid var(--main-color);
+    border-bottom: 80px solid var(--main-color);
+    z-index: -1;
+    right: -150px;
+}
+
+@media (max-width: 991px) {
+    .about .about-content .image::before,
+    .about .about-content .image::after {
+        display: none;
+    }
+}
+
+.about .about-content .image img {
+    max-width: 100%;
+}
+
+.about .about-content .text {
+    flex-basis: calc(100% - 500px);
+}
+
+.about .about-content .text p:first-of-type {
+    font-weight: bold;
+    line-height: 2;
+    margin-bottom: 50px;
+}
+
+.about .about-content .text hr {
+    width: 50%;
+    display: inline-block;
+    border-color: var(--main-color);
+}
+
+.about .about-content .text p:last-of-type {
+    line-height: 2;
+    color: #777;
+}
+
+
+/* End About */
+
+
+/* Start Contact */
+
+.contact {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    background-color: var(--section-background);
+}
+
+.contact .info {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    text-align: center;
+}
+
+.contact .info .social:hover,
+.contact .info .label:hover,
+.contact .info .link:hover,
+.contact .info .social:hover,
+.contact .info .social i:hover {
+    color: var(--main-color);
+    text-shadow: #2c4755 20px;
+}
+
+.contact .info .label {
+    font-size: 35px;
+    font-weight: 800;
+    color: var(--secondary-color);
+    letter-spacing: -2px;
+    margin-bottom: 15px;
+}
+
+.contact .info .link {
+    display: block;
+    font-size: 35px;
+    font-weight: 800;
+    color: darkred;
+    text-decoration: none;
+}
+
+.contact .info .social {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.contact .info .social i {
+    margin-left: 10px;
+    color: var(--secondary-color);
+}
+
+@media (max-width: 767px) {
+    .contact .info .label,
+    .contact .info .link {
+        font-size: 25px;
+    }
+}
+
+
+/* End Contact */
+
+
+/* Start Footer */
+
+.footer {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 30px 10px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.footer span {
+    font-weight: bold;
+    color: var(--main-color);
+}
+
+
+/* End Footer */
